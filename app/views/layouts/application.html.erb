@@ -15,8 +15,12 @@
 <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-<%= yield %>
 
+<div class="Container">
+</br>
+<%= render "layouts/navbar" %>
+<%= yield %>
+</div>
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
