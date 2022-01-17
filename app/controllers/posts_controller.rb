@@ -2,8 +2,8 @@ class PostsController < ApplicationController
 
   #GET /posts
   def index
-    @posts = Post.all.order
-    redirect_to root_path
+    @posts = Post.all
+
 
   end
 
