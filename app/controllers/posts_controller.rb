@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   #POST /posts
   def create
+
   end
 
   #POST /posts/new
