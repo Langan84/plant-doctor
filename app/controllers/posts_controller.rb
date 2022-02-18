@@ -9,12 +9,24 @@ class PostsController < ApplicationController
 
   #POST /posts
   def create
+    @post = current_user.posts.build(post_params)
 
+    @post.user_id = current_user.id
+
+    if @post.save
+    redirect_to posts_path
+    else
+      render :new
+    end
   end
+
 
   #POST /posts/new
   def new
-    @post = Post.new
+
+     @post = current_user.posts.build
+
+
   end
 
   #GET /posts/1
@@ -32,5 +44,10 @@ class PostsController < ApplicationController
 
   #GET /posts/1/edit
   def edit
+  end
+
+private
+  def post_params
+    params.require(:post).permit(:name, :title, :content, :image)
   end
 end

@@ -4,19 +4,41 @@
 <h2>Post a plant </h2>
 
 <%= form_with model: @post do |f|  %>
+  <% if @post.errors.any? %>
+          <div id="error_explanation" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <h2>Oops!</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <ul>
+              <% @post.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
 
 <div class="mb-3" >
   <%= f.label :plant_Name %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="mb-3" >
+  <%= f.label :question %>
   <%= f.text_field :title, class: "form-control" %>
 </div>
 <div class="mb-3" >
-<%= f.label :plant_picture %>
-<%= f.text_field :content, class: "form-control" %>
+  <%= f.label :description %>
+  <%= f.text_field :content, class: "form-control" %>
 </div>
+
 <div class="mb-3" >
-<%= f.label :ask_a_question %>
-<%= f.text_field :question, class: "form-control" %>
+<%= f.label :plant_picture %>
+<%= f.file_field :image, class: "form-control" %>
 </div>
+
+<div class="actions" >
+
+<%= f.submit "Submit", class: "form-control" %>
+</div>
+
 <% end %>
 </div>
 </div>
