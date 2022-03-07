@@ -5,3 +5,7 @@
   <%= post.name %>
   <%= post.content %>
 <% end %>
+
+<a class="edit-post" href="<%= edit_post_path(current_user) %>">
+  <button>Edit Post</button>
+</a>

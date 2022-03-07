@@ -23,10 +23,7 @@ class PostsController < ApplicationController
 
   #POST /posts/new
   def new
-
      @post = current_user.posts.build
-
-
   end
 
   #GET /posts/1
@@ -41,6 +38,8 @@ class PostsController < ApplicationController
 
   #DELETE /posts/1
   def destroy
+      @post.delete
+      redirect_to posts_path, notice: 'Your post was deleted successfully'
   end
 
   #GET /posts/1/edit

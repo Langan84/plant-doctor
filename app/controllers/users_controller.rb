@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
   end
-  end
+
   #GET /users/1 or /users/1.json
   def show
 
